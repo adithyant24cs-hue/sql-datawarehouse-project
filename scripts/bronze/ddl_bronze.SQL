@@ -1,12 +1,13 @@
+USE Datawarehouse;
 IF OBJECT_ID('bronze.crm_ipl_ball_by_ball','U')IS NOT NULL
 	DROP TABLE bronze.crm_ipl_ball_by_ball;
 CREATE TABLE bronze.crm_ipl_ball_by_ball(
 	match_id INT,
-	date_of_match DATE,
-	season VARCHAR(100),
-	venue NVARCHAR(100),
-	city NVARCHAR(100),
-	innings VARCHAR(100),
+	[date] NVARCHAR(MAX),
+	season NVARCHAR(MAX),
+	venue NVARCHAR(MAX),
+	city NVARCHAR(MAX),
+	innings NVARCHAR(100),
 	batting_team NVARCHAR(100),
 	bowling_team NVARCHAR(100),
 	overs VARCHAR(100),
@@ -34,13 +35,13 @@ CREATE TABLE bronze.crm_ipl_ball_by_ball(
 	is_powerplay VARCHAR(100),
 	is_middle_overs VARCHAR(100),
 	is_death_overs VARCHAR(100),
-	batting_team_won VARCHAR(100)
+	batting_team_won VARCHAR(MAX)
 );
 IF OBJECT_ID('bronze.crm_ipl_matches','U')IS NOT NULL
 	DROP TABLE bronze.crm_ipl_matches;
 CREATE TABLE bronze.crm_ipl_matches(
 match_id INT,
-date_of_match DATE,
+[date] NVARCHAR(MAX),
 city NVARCHAR(100),
 venue NVARCHAR(100),
 team1 NVARCHAR(100),
