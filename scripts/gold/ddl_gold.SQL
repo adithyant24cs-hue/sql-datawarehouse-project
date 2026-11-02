@@ -460,3 +460,19 @@ UNION ALL SELECT 'dim_venue', COUNT(*) FROM gold.dim_venue
 UNION ALL SELECT 'fact_matches', COUNT(*) FROM gold.fact_matches
 UNION ALL SELECT 'fact_ball_deliveries', COUNT(*) FROM gold.fact_ball_deliveries;
 GO
+
+USE Datawarehouse;
+GO
+
+SELECT 'dim_date' AS [Table_Name], 'Dimension' AS [Type], COUNT(*) AS [Total_Rows] FROM gold.dim_date
+UNION ALL
+SELECT 'dim_team', 'Dimension', COUNT(*) FROM gold.dim_team
+UNION ALL
+SELECT 'dim_player', 'Dimension', COUNT(*) FROM gold.dim_player
+UNION ALL
+SELECT 'dim_venue', 'Dimension', COUNT(*) FROM gold.dim_venue
+UNION ALL
+SELECT 'fact_matches', 'Fact (Match-Grain)', COUNT(*) FROM gold.fact_matches
+UNION ALL
+SELECT 'fact_ball_deliveries', 'Fact (Ball-Grain)', COUNT(*) FROM gold.fact_ball_deliveries;
+GO
